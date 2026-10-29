@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag"
+version = "0.1.0"
+description = "Local retrieval-augmented search over a directory, with citations and evaluation."
+requires-python = ">=3.11"
+dependencies = ["numpy", "fastembed"]
+
+[project.optional-dependencies]
+llm = ["anthropic"]
+dev = ["pytest"]
+
+[project.scripts]
+rag = "rag.cli:main"
+
+[tool.setuptools]
+packages = ["rag"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
